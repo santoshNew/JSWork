@@ -1,0 +1,23 @@
+<html ng-app>   <!-- ng-app is a built-in Angular "directive"
+                     which defines the Angular app boundary; 
+                     in this case, from the starting <html> 
+                     tag to the closing </html> tag -->
+ 
+  <head>
+    <script src="js/angular.js">  
+        <!-- load the angular javascript code -->
+    </script> <!-- and close the script tag! -->
+  </head>
+  <body>
+    <p ng-init=" name='World' ">Hello {{name}}!</p>
+       <!-- here ng-init is a convenient "directive" which Angular
+            provides to let you run code prior to execution of the
+            main Angular template. In this case, we simply initialize
+            the variable "name" with the value "World". According to 
+            the Angular developers, this is a shortcut for toy/test
+            applications. We'll use it for the moment and get a bit
+            more professional shortly.
+       -->
+    
+  </body>
+</html>
