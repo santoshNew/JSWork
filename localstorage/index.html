@@ -1,0 +1,67 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title>Local Storage Example</title>
+	<style type="text/css">
+		body { font-family : tahoma;}
+		.container{width: 640px;background: #f1f1f1;margin: 0 auto; padding: 15px;}
+		h2 { font-weight: bold; border-bottom: 2px solid gray; margin-bottom:10px}
+		#data { border: 1px solid grey; min-height:20px; }
+	</style>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+			
+			var prefix = "localStorageDemo-";
+			$("#save").click(function () { 
+			    var key = $("#key").attr('value');
+			    var value = $("#value").attr('value');
+			    localStorage.setItem(prefix + key, value);      //******* setItem()
+			    //localStorage[prefix+key] = value; also works
+			    RewriteFromStorage();
+			});
+
+			function RewriteFromStorage() {
+			    $("#data").empty();
+			    for(var i = 0; i < localStorage.length; i++)    //******* length
+			    {
+			        var key = localStorage.key(i);              //******* key()
+			        if(key.indexOf(prefix) == 0) {
+			            var value = localStorage.getItem(key);  //******* getItem()
+			            //var value = localStorage[key]; also works
+			            var shortkey = key.replace(prefix, "");
+			            $("#data").append(
+			                $("<div class='kvp'>").html(shortkey + "=" + value)
+			                   .append($("<input type='button' value='Delete'>")
+			                           .attr('key', key)
+			                           .click(function() {      //****** removeItem()
+			                                localStorage.removeItem($(this).attr('key'));
+			                                RewriteFromStorage();
+			                            })
+			                          )
+			            );
+			        }
+			    }
+			}
+
+			RewriteFromStorage();
+
+		});
+
+
+	</script>
+	
+</head>
+<body>
+	<div class="container">
+		<h2>Task Dairy </h2>
+		<div id="data"></div>
+		<hr/>
+		<span>Key</span><input type="text" id="key"/>
+		<span>Value</span><input type="text" id="value"/>
+
+		<input type="button" id="save" value="Save"/>
+	</div>
+</body>
+</html> 
