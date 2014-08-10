@@ -1,0 +1,26 @@
+<!DOCTYPE>
+<html ng-app='nameDesgApp'>
+	<head>
+	<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js'></script>
+	<script type='text/javascript'>
+		var nameDesgApp = angular.module('nameDesgApp', []);
+		nameDesgApp.controller('NameDesgCrtl', function ($scope) {
+			$scope.employes = [
+			{'name': 'Santosh Biswakarma','designation': 'Front End Developer'},
+			{'name': 'Shambhu Kumar','designation': 'Module Lead'},
+			{'name': 'Kumar Uttam','designation': 'Senior Team Leader'},
+			{'name': 'Goutam Kumar','designation': 'Team Leader'}
+			];
+			});	
+		</script>
+	</head>
+	<body ng-controller='NameDesgCrtl'>
+		Search:
+		<input ng-model='query'>
+		<ul class='phones'>
+			<li ng-repeat='emp in employes | filter:query'>{{emp.name}}, {{emp.designation}}
+			<!-- <p>{{emp.designation}}</p> -->
+			</li>
+		</ul>
+	</body>
+</html>
