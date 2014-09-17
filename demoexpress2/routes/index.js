@@ -18,11 +18,15 @@ router.get('/', function(req, res) {
 /* GET Custom home page. */
  router.get('/hello', function(req, res) {
  	connection.connect();
- 	connection.query('SELECT * FROM persons', function(err, rows, fields) {
- 		 res.render('hello', {user : rows});
+ 	connection.query('SELECT * FROM persons;', function(err, rows, fields) {
+ 	// connection.query('UPDATE persons SET PersonID=2 WHERE FristName="Shambhu";', function(err, rows, fields) {
+ 		 res.render('hello', {users : rows});
  		if (err) throw err;
+ 		console.log( 'the data comes from :');
  		console.log(rows);
+
  	});
+
  	connection.end();
  });
 

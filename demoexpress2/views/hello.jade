@@ -2,5 +2,15 @@ extends layout
 
 block content
   h1= title
-  em= user
+  
   p Welcome to #{title}
+  ul
+    each user, i in users
+      li.userList
+        p= user.PersonID 
+        p= user.FirstName 
+        p= user.LastName 
+        p= user.Address 
+        p= user.City 
+        
+ 
