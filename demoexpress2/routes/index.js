@@ -18,9 +18,15 @@ router.get('/', function(req, res) {
 router.get('/login', function(req, res) {
   	console.log(req.query.username);
   	console.log(req.query.password);
+  	res.redirect("newuser");
   	
 });
-
+router.get('/newuser', function(req, res) {
+	res.render('newuser', { title: 'New User Registration' });
+  	// console.log(req.query.username);
+  	// console.log(req.query.password);
+  	
+});
 
 /* GET Custom home page. */
  router.get('/hello', function(req, res) {
