@@ -15,11 +15,17 @@ router.get('/', function(req, res) {
   res.render('index', { title: 'Express' });
 });
 
+router.get('/login', function(req, res) {
+  	console.log(req.query.username);
+  	console.log(req.query.password);
+  	
+});
+
+
 /* GET Custom home page. */
  router.get('/hello', function(req, res) {
  	connection.connect();
  	connection.query('SELECT * FROM persons;', function(err, rows, fields) {
- 	// connection.query('UPDATE persons SET PersonID=2 WHERE FristName="Shambhu";', function(err, rows, fields) {
  		 res.render('hello', {users : rows});
  		if (err) throw err;
  		console.log( 'the data comes from :');

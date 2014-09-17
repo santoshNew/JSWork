@@ -11,6 +11,10 @@ block content
         p= user.FirstName 
         p= user.LastName 
         p= user.Address 
-        p= user.City 
+        p= user.City
+  form.formLogin(name="helloFrom" method='get', action='/login')
+    input(type='text', placeholder="username", name='username')
+    input(type='password', placeholder="password", name='password')
+    input(type='submit') 
         
  
