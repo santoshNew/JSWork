@@ -19,6 +19,7 @@ router.get('/login', function(req, res) {
   	console.log(req.query.username);
   	console.log(req.query.password);
   	res.redirect("newuser");
+    res.write(req.query.username, req.query.password);
   	
 });
 router.get('/newuser', function(req, res) {
