@@ -1,0 +1,20 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+.reg_form input[type='text'],
+.reg_form input[type='submit']{
+	display: block;
+}
+.empList li{
+	list-style: none;
+	padding: 5px;
+}
+.empList li span{
+	padding: 0 10px;
+	border-right: 1px solid #CCC;	
+}

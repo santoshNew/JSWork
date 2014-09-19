@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/bootstrap.css' />
+    <script type="text/javascript" src="/javascript/js_production.js"></script>
+  </head>
+  <body>
+    <h2>Welcome to Deshboard</h2>
+    <p>Following are the registered user</p>
+    <ul class="empList">
+    <% users.forEach(function (user) { %>
+        <li>
+          <span><%= user.PersonID %></span>
+          <span><%= user.FirstName %></span>
+          <span><%= user.LastName %></span>
+          <span><%= user.Address %></span>
+          <span><%= user.City %></span>
+        </li>
+    <% }); %>
+    </ul>
+    
+  </body>
+</html>
